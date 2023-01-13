@@ -16,14 +16,8 @@ Output: 1<br>
 ## 解析
 统计target中各个字符的出现次数，以及这些字符在s中的出现次数。找到最小的（两个次数之间的）最大公因数。<br>
 1. python<br>
-```
-class Solution:
-    def rearrangeCharacters(self, s: str, target: str) -> int:
-        ans = inf
-        cnt_s = Counter(s)
-        for c, cnt in Counter(target).items():
-            ans = min(ans, cnt_s[c] // cnt)
-            if ans == 0:
-                return 0
-        return ans
-```
+用字典储存/Counter计数<br>
+2. C<br>
+储存到数组<br>
+3.C++<br>
+map (Hash Table)
