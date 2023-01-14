@@ -3,16 +3,35 @@
 
 int searchInsert(int *nums, int numsSize, int target)
 {
-    int mid = numsSize / 2;
-    if (target < nums[mid])
+    int left = 0;
+    int right = numsSize - 1;
+    int mid = (left + right) / 2;
+
+    // dividing at half
+    while (left <= right)
     {
-        search(*nums, 0, mid, target);
+        if (target < nums[mid])
+        {
+            right = mid - 1;
+            mid = (left + right) / 2;
+        }
+        else if (target > nums[mid])
+        {
+            left = mid + 1;
+            mid = (left + right) / 2;
+        }
+        else
+            return mid;
     }
-    else
-        search(*nums, mid, numsSize, target);
+    return right + 1;
 }
 
-int search(int *nums, int start, int end, int target)
+int main()
 {
-    return 0
+    int nums1[] = {1, 3, 5, 6};
+    int numsSize1 = 4;
+    int target1 = 5;
+    int target2 = 2;
+    int target3 = 7;
+    printf("%d", searchInsert(&nums1, numsSize1, target3));
 }
